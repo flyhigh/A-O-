@@ -65,7 +65,6 @@ def _apply_reasoning_effort(oai_payload: Dict[str, Any], reasoning_effort: str) 
     oai_payload[field] = effort
 
 
-# -------------------- Auth --------------------
 def _check_auth(req: Request):
     # Claude Code 网关文档：ANTHROPIC_AUTH_TOKEN 会作为 Authorization 发出 [<sup>1</sup>](https://docs.anthropic.com/en/docs/claude-code/llm-gateway)
     auth = req.headers.get("authorization", "") or ""
@@ -511,3 +510,4 @@ async def count_tokens(req: Request):
 
     approx = max(1, (len(txt) + 3) // 4)
     return JSONResponse({"input_tokens": approx})
+
